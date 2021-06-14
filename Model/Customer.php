@@ -11,7 +11,7 @@ class Customer
 
     private int $fixedDiscount;
     private int $variableDiscount;
-
+    private static $length = 0;
 
     public function __construct(int $id, string $firstName, string $lastName, int $groupId, int $fixedDiscount, int $variableDiscount)
     {
@@ -21,6 +21,7 @@ class Customer
         $this->groupId = $groupId;
         $this->fixedDiscount = $fixedDiscount;
         $this->variableDiscount = $variableDiscount;
+        self::$length +=1;
     }
 
 
@@ -57,6 +58,8 @@ class Customer
     {
         return $this->variableDiscount;
     }
-
+    public static function getTotal(){
+        return self::$length;
+    }
 
 }
