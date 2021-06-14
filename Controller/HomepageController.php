@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 class HomepageController
 {
@@ -7,7 +7,17 @@ class HomepageController
     public function render(array $GET, array $POST)
     {
         //this is just example code, you can remove the line below
-        $user = new User('John Smith');
+        $con = Database::openConnection();
+        $handle = $con->prepare('SELECT * FROM customer WHERE id=:id');
+        $handle->bindValue(':id', 1);
+        $handle->execute();
+        $selectedUser = $handle->fetchAll();
+        var_dump($selectedUser);
+        $firstname = $selectedUser[0]["firstname"];
+        $lastname = $selectedUser[0]["lastname"];
+
+        var_dump($selectedUser);
+        $user = new User($firstname . " " . $lastname);
 
         //you should not echo anything inside your controller - only assign vars here
         // then the view will actually display them.

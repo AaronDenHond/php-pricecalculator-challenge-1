@@ -2,7 +2,7 @@
 
 class Database
 {
-    public function openConnection(): PDO
+    public static function openConnection(): PDO
     {
         $dbhost = "localhost";
         $dbuser = "root";
