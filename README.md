@@ -43,6 +43,9 @@ Milestone 1 COMPLETE
 
 Milestone 3 COMPLETE
 
+9. Update the view with a dropdown menu for products and customers.
+
+10. Connect the keys and show basic info
 
 15/6
 
