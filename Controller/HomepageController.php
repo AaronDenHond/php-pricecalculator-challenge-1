@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-
+//testing comment forks and stuff
 class HomepageController
 {
     //render function with both $_GET and $_POST vars available if it would be needed.
