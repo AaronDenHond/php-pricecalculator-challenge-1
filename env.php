@@ -4,17 +4,17 @@
  global $DBHOST;
 
 
- $DBPASS='becode';
+ $DBPASS='newuser';
 
 global $DBPASS;
 
 
- $DBUSER='root';
+ $DBUSER='newuser';
 
  global $DBUSER;
 
 
-$DB='price';
+$DB='pricecalculator';
 
 global $DB;
 
