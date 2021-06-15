@@ -8,13 +8,13 @@ class StoreController
     public function render(array $GET, array $POST)
     {
        $loader = new ProductLoader();
-       $loader->getAllProducts();
+       $allProducts = $loader->getAllProducts();
 
        $loader2 = new CustomerLoader();
-       $loader2->getAllCustomers();
+       $allCustomers = $loader2->getAllCustomers();
 
        $loader3 = new CustomerGroupLoader();
-       $loader3->getAllCustomerGroups();
+       $allCustomerGroups = $loader3->getAllCustomerGroups();
 
         require 'View/store.php';
     }

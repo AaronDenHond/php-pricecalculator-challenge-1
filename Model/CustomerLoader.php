@@ -8,7 +8,7 @@ class CustomerLoader
     public function __construct()
     {
         $con = Database::openConnection();
-        $handle = $con->prepare('SELECT * FROM products');
+        $handle = $con->prepare('SELECT * FROM customer');
         $handle->execute();
         $selectedCustomers = $handle->fetchAll();
 

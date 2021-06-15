@@ -8,7 +8,7 @@ class ProductLoader
     public function __construct()
     {
         $con = Database::openConnection();
-        $handle = $con->prepare('SELECT * FROM products');
+        $handle = $con->prepare('SELECT * FROM product');
         $handle->execute();
         $selectedProducts = $handle->fetchAll();
 

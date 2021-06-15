@@ -8,7 +8,7 @@ class CustomerGroupLoader
     public function __construct()
     {
         $con = Database::openConnection();
-        $handle = $con->prepare('SELECT * FROM products');
+        $handle = $con->prepare('SELECT * FROM customer_group');
         $handle->execute();
         $selectedCustomerGroups = $handle->fetchAll();
 
