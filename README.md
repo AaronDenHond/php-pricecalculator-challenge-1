@@ -21,23 +21,27 @@ STRATEGIC PLAN :
 
 3. Creating MVC boilerplate and adding index.php
 
-Milestone 1
+Milestone 1 COMPLETE
 
 4. Enable error reporting and strict typing in index.php
 
-Milestone 1
+Milestone 1 COMPLETE
 
 5. Making a class in the Model for database connection
 
-Milestone 1
+Milestone 1 COMPLETE
 
 6. Making Customer, CustomerGroup and Product classes in Model directory
 
-Milestone 1
+Milestone 1 COMPLETE
 
 7. Connection database class to table classes?
 
-Milestone 1
+Milestone 1 COMPLETE 
+
+8. Make working ENV
+
+Milestone 3 COMPLETE
 
 
 15/6

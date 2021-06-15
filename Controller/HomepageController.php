@@ -12,11 +12,11 @@ class HomepageController
         $handle->bindValue(':id', 1);
         $handle->execute();
         $selectedUser = $handle->fetchAll();
-        var_dump($selectedUser);
+        
         $firstname = $selectedUser[0]["firstname"];
         $lastname = $selectedUser[0]["lastname"];
 
-        var_dump($selectedUser);
+        
         $user = new User($firstname . " " . $lastname);
 
         //you should not echo anything inside your controller - only assign vars here

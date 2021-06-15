@@ -4,10 +4,10 @@ class Database
 {
     public static function openConnection(): PDO
     {
-        $dbhost = "localhost";
-        $dbuser = "root";
-        $dbpass = "becode";
-        $db = "price";
+        $dbhost = $GLOBALS['DBHOST'];
+        $dbuser = $GLOBALS['DBUSER'];
+        $dbpass = $GLOBALS['DBPASS'];
+        $db = $GLOBALS['DB'];
 
         $driverOptions = [
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
