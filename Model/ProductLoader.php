@@ -22,5 +22,11 @@ class ProductLoader
     {
         return $this->products;
     }
-
+    public function getProductById(int $id) {
+        foreach($this->products as $product) {
+        if($product->getId() === $id) {
+            return $product;
+        }
+    }
+}
 }

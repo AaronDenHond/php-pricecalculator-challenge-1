@@ -63,6 +63,25 @@ class StoreController
 
         }
 
+          
+        if(isset($_POST['product'])) {
+            $product = $loader->getProductById((int)$_POST["product"]);
+            $productId = $product->getId();
+            $productName = $product->getName();
+            $productPrice = $product->getPrice();
+            
+            var_dump($product);
+            echo '<br>';
+            echo $productId;
+            echo '<br>';
+            echo $productName;
+            echo '<br>';
+            var_dump($productPrice);
+            echo '<br>';
+
+
+        }
+
 
         require 'View/store.php';
     }
