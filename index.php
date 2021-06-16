@@ -15,6 +15,7 @@ require 'Model/Database.php';
 require 'Model/CustomerLoader.php';
 require 'Model/CustomerGroupLoader.php';
 require 'Model/ProductLoader.php';
+require 'Model/Calculator.php';
 
 //include all your controllers here
 require 'Controller/HomepageController.php';
