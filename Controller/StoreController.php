@@ -17,14 +17,52 @@ class StoreController
         $allCustomerGroups = $loader3->getAllCustomerGroups();
 
 
-        echo '<h4>$_GET</h4>';
-        var_dump($_GET);
-        echo '<h4>$_POST</h4>';
-        var_dump($_POST);
-        echo '<br>';
-        var_dump($_POST["product"]);
-        echo '<br>';
-        var_dump($_POST["customer"]);
+        if (isset($_POST["customer"])) {
+            $customer = $loader2->getCustomerById((int)$_POST["customer"]);
+
+            $customerName = $customer->getFirstName();
+            $customerLastName = $customer->getLastName();
+            $customerGroup = $customer->getGroupId();
+            $customerFixed = $customer->getFixedDiscount();
+            $customerVariable = $customer->getVariableDiscount();
+
+            $group = $loader3->getGroupById((int)$customerGroup);
+            $groupFixed = array($group->getFixedDiscount());
+            $groupVariable = array($group->getVariableDiscount());
+            $groupParent = $group->getParentId();
+
+            while ($groupParent > 0) {
+                $group = $loader3->getGroupById((int)$groupParent);
+                $fix = $group->getFixedDiscount();
+                if (isset($fix)) {
+                    array_push($groupFixed, $group->getFixedDiscount());
+                }
+                $var = $group->getVariableDiscount();
+                if (isset($var)) {
+                    array_push($groupVariable, $group->getVariableDiscount());
+                }
+                $groupParent = $group->getParentId();
+            }
+
+            echo "Name:<br>";
+            echo $customerName . " " . $customerLastName;
+            echo '<br><br>';
+            echo "FixedDiscount:<br>";
+            echo $customerFixed;
+            echo '<br><br>';
+            echo "VariableDiscount:<br>";
+            echo $customerVariable;
+            echo '<br><br>';
+            echo "FixedGroupDiscounts: <br>";
+            var_dump($groupFixed);
+            echo '<br><br>';
+            echo "VariableGroupDiscounts: <br>";
+            var_dump($groupVariable);
+            echo '<br>';
+            echo '<br>';
+
+        }
+
 
         require 'View/store.php';
     }

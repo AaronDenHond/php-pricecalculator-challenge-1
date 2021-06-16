@@ -23,4 +23,12 @@ class CustomerGroupLoader
         return $this->customerGroups;
     }
 
+    public function getGroupById(int $id)
+    {
+        foreach ($this->customerGroups as $group) {
+            if ($group->getId() === $id) {
+                return $group;
+            }
+        }
+    }
 }
