@@ -20,14 +20,7 @@ require 'Model/ProductLoader.php';
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
 require 'Controller/StoreController.php';
-function whatIsHappening() {
-    echo '<h2>$_GET</h2>';
-    var_dump($_GET);
-    echo '<h2>$_POST</h2>';
-    var_dump($_POST);
-   
-}
-whatIsHappening();
+
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
