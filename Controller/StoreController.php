@@ -116,6 +116,10 @@ class StoreController
             echo "<br>";
             echo 'FinalPrice:<br> ' . $test->getFinalPrice();
             echo "<br>";
+            echo "<br>";
+            echo $test->getBestGroupDisc();
+            echo "<br>";
+            echo "<br>";
 
 
         

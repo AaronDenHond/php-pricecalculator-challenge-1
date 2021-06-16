@@ -97,65 +97,42 @@ class Calculator
         $this->finalPrice = (($this->price - ($this->customerFixed * 100) - ($this->sumFixedGroupDisc * 100)) *  (1 - $this->bestVarDisc / 100)) / 100;
         $this->finalPrice = round($this->finalPrice, 2);
     }
-    /**
-     * @return int
-     */
+
     public function getIdCustomer(): int
     {
         return $this->idCustomer;
     }
 
-    /**
-     * @return int
-     */
     public function getIdProduct(): int
     {
         return $this->idProduct;
     }
 
-    /**
-     * @return int
-     */
     public function getCustomerFixed(): int
     {
         return $this->customerFixed;
     }
 
-    /**
-     * @return int
-     */
     public function getCustomerVariable(): int
     {
         return $this->customerVariable;
     }
 
-    /**
-     * @return array
-     */
     public function getGroupFixed(): array
     {
         return $this->groupFixed;
     }
 
-    /**
-     * @return int
-     */
     public function getSumFixedGroupDisc(): int
     {
         return $this->sumFixedGroupDisc;
     }
 
-    /**
-     * @return array
-     */
     public function getGroupVariable(): array
     {
         return $this->groupVariable;
     }
 
-    /**
-     * @return int
-     */
     public function getmaxVarGroupDisc(): int
     {
         return $this->maxVarGroupDisc;
@@ -165,9 +142,6 @@ class Calculator
         return $this->price;
     }
 
-    /**
-     * @return string
-     */
     public function getBestGroupDisc(): string
     {
         return $this->bestGroupDisc;
@@ -180,4 +154,5 @@ class Calculator
     {
         return $this->finalPrice;
     }
+
 }
