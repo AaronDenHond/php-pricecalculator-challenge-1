@@ -3,12 +3,16 @@
     Anything complex should be calculated in the model -->
     <section>
         <h1>Store Page Front</h1>
+<<<<<<< HEAD
         <form  method="POST">
+=======
+        <form action="" method="POST">
+>>>>>>> a52e3dce85de24dffd2f3ae98a9e54f1ff7ee8c0
             <label for="product">Choose a product :</label>
             <select name='product' id='product'>
 
                 <?php foreach ($allProducts as $product) {
-                    echo "<option>{$product->getName()} / Price : {$product->getPrice()}</option>";
+                    echo "<option value='{$product->getName()}'>{$product->getName()} / Price : {$product->getPrice()}</option>";
                 }
                 ?>
             </select>
@@ -17,7 +21,7 @@
             <select name='customer' id="customer">
                 <?php
                 foreach ($allCustomers as $customer) {
-                    echo "<option>{$customer->getFirstName()} {$customer->getLastName()}</option>";
+                    echo "<option value='{$customer->getId()}'>{$customer->getFirstName()} {$customer->getLastName()}</option>";
                 }
                 ?>
             </select>
