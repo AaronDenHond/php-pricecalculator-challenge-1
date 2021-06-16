@@ -10,9 +10,11 @@ class Calculator
     private array $groupFixed;
     private int $sumFixedGroupDisc;
     private array $groupVariable;
-    private int $maxGroupDisc;
+    private int $maxVarGroupDisc;
     private int $price;
     private string $bestGroupDisc;
+    private int $bestVarDisc;
+    private float $finalPrice;
 
 
     public function __construct(int $idCustomer, int $idProduct)
@@ -54,7 +56,6 @@ class Calculator
                 }
                 $groupParent = $group->getParentId();
             }
-
         }
     }
 
@@ -75,18 +76,27 @@ class Calculator
         $this->getDisc();
         $this->getPrice();
 
-        $this->maxGroupDisc = max($this->groupVariable);
+        $this->maxVarGroupDisc = max($this->groupVariable);
         $this->sumFixedGroupDisc = array_sum($this->groupFixed);
 
-        if ($this->sumFixedGroupDisc > $this->price * ($this->maxGroupDisc / 100)) {
+        if ($this->sumFixedGroupDisc > $this->price * ($this->maxVarGroupDisc / 100)) {
             $this->bestGroupDisc = "The fixed group discount has given you the most discount";
         } else {
             $this->bestGroupDisc = "The variable group discount has given you the most discount";
         }
 
+        /*  if (!empty($this->maxVarGroupDisc) && !empty($this->customerVariable)) { */
+        if ($this->maxVarGroupDisc > $this->customerVariable) {
 
+            $this->bestVarDisc = $this->maxVarGroupDisc;
+        } else {
+            $this->bestVarDisc = $this->customerVariable;
+        }
+        //}
+
+        $this->finalPrice = (($this->price - ($this->customerFixed * 100) - ($this->sumFixedGroupDisc * 100)) *  (1 - $this->bestVarDisc / 100)) / 100;
+        $this->finalPrice = round($this->finalPrice, 2);
     }
-
     /**
      * @return int
      */
@@ -146,9 +156,9 @@ class Calculator
     /**
      * @return int
      */
-    public function getMaxGroupDisc(): int
+    public function getmaxVarGroupDisc(): int
     {
-        return $this->maxGroupDisc;
+        return $this->maxVarGroupDisc;
     }
     public function getPrice2(): int
     {
@@ -162,5 +172,12 @@ class Calculator
     {
         return $this->bestGroupDisc;
     }
-
+    public function getBestVarDisc(): int
+    {
+        return $this->bestVarDisc;
+    }
+    public function getFinalPrice(): float
+    {
+        return $this->finalPrice;
+    }
 }

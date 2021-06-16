@@ -86,25 +86,39 @@ class StoreController
             $test->calculatorFunc();
             echo "<br>";
             echo "<br>";
-            echo $test->getIdCustomer();
+            echo 'customerid: <br> ' .  $test->getIdCustomer();
             echo "<br>";
-            echo $test->getIdProduct();
+            echo 'productid: <br>'. $test->getIdProduct();
             echo "<br>";
-            echo $test->getCustomerFixed();
+            echo 'customerFixed: <br>' . $test->getCustomerFixed();
             echo "<br>";
-            echo $test->getCustomerVariable();
+            echo  'customerVariable: <br>'. $test->getCustomerVariable();
             echo "<br>";
-            print_r($test->getGroupFixed());
-            echo "<br>";
-            echo $test->getSumFixedGroupDisc();
-            echo "<br>";
+            print_r ($test->getGroupFixed());
+            echo  "<br>";
+            echo 'sumFixedGroups:<br>'. $test->getSumFixedGroupDisc();
+            echo   "<br>";
+            echo 'groupVar <br> ';
             print_r($test->getGroupVariable());
             echo "<br>";
-            echo $test->getMaxGroupDisc();
+            echo 'MaxVarGroups: <br>' . $test->getMaxVarGroupDisc();
             echo "<br>";
-            echo $test->getPrice2();
+            echo 'Price:<br> ' . $test->getPrice2();
             echo "<br>";
             echo "<br>";
+            echo'customerVar: <br>' . $test->getCustomerVariable();
+            echo "<br>";
+            echo 'groupVar <br> ';
+            print_r($test->getGroupVariable());
+            echo "<br>";  
+            echo 'bestVarDisc: <br>'. $test->getBestVarDisc();
+            echo "<br>";  
+            echo "<br>";
+            echo 'FinalPrice:<br> ' . $test->getFinalPrice();
+            echo "<br>";
+
+
+        
 
 
         }
