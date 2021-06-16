@@ -12,7 +12,7 @@ op store page nu alle producten kunnen laten zien CHECK
 
 Milestone 2: calculations, logic,...
 
-Milestone 3: extras (env)
+Milestone 3: extras (env), error reporting
 STRATEGIC PLAN :
 
 1. Make repo and clone it on local machine

@@ -3,7 +3,7 @@
     Anything complex should be calculated in the model -->
     <section>
         <h1>Store Page Front</h1>
-        <form action="" method="GET">
+        <form  method="POST">
             <label for="product">Choose a product :</label>
             <select name='product' id='product'>
 
@@ -28,6 +28,8 @@
             ?>
             <button type="submit" name="submit">Submit choice</button>
         </form>
+
+       
     </section>
     <br>
 <?php require 'includes/footer.php' ?>
