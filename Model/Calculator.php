@@ -79,10 +79,10 @@ class Calculator
         $this->maxVarGroupDisc = max($this->groupVariable);
         $this->sumFixedGroupDisc = array_sum($this->groupFixed);
 
-        if ($this->sumFixedGroupDisc > $this->price * ($this->maxVarGroupDisc / 100)) {
-            $this->bestGroupDisc = "The fixed group discount has given you the most discount";
+        if ($this->sumFixedGroupDisc > $this->price/100 * ($this->maxVarGroupDisc / 100)) {
+            $this->bestGroupDisc = "The fixed group discount has given you the most discount.";
         } else {
-            $this->bestGroupDisc = "The variable group discount has given you the most discount";
+            $this->bestGroupDisc = "The variable group discount has given you the most discount.";
         }
 
         

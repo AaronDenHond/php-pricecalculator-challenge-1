@@ -8,7 +8,7 @@
             <select name='product' id='product'>
 
                 <?php foreach ($allProducts as $product) {
-                    echo "<option value='{$product->getId()}'>{$product->getName()} / Price : {$product->getPrice()}</option>";
+                    echo "<option value='{$product->getId()}'>{$product->getName()}: €".($product->getPrice()/100)."</option>";
                 }
                 ?>
             </select>
@@ -25,46 +25,31 @@
             <br>
             <button type="submit" name="submit">Submit choice</button>
         </form>
-<?php
-if (isset($calculator)) {
+        <br>
+
+            <?php
+            if (isset($calculator)) {
+
+                echo '<div><h4>Price:</h4>';
+                echo '<p>The final price is: €' . ($calculator->getFinalPrice()) . '</p>';
+                echo '<p>The original price was: €' . ($calculator->getPrice2() / 100) . '</p></div>';
+
+                echo "<br>";
+
+                echo '<div><h4>The customer discounts:</h4>';
+                echo '<p>Fixed customer discount: €' . ($calculator->getCustomerFixed()) .'</p>';
+                echo '<p>Variable customer discount ' . $calculator->getCustomerVariable() . '%</p>';
+                echo '<p>Fixed group discount total: €' . ($calculator->getSumFixedGroupDisc()) .'</p>';
+                echo '<p>Highest variable group discount ' . $calculator->getBestVarDisc() . '%</p>';
+                echo "<br>";
+                echo $calculator->getBestGroupDisc().'</div>';
+                echo "<br>";
+                echo "<br>";
 
 
-    echo 'customerFixed: <br>' . $calculator->getCustomerFixed();
-    echo "<br>";
-    echo  'customerVariable: <br>'. $calculator->getCustomerVariable();
-    echo  "<br>";
-    echo 'sumFixedGroups:<br>'. $calculator->getSumFixedGroupDisc();
-    echo   "<br>";
-    echo 'groupVar <br> ';
+                }
+            ?>
 
-    echo "<br>";
-    echo 'MaxVarGroups: <br>' . $calculator->getMaxVarGroupDisc();
-    echo "<br>";
-    echo 'Price:<br> ' . $calculator->getPrice2();
-    echo "<br>";
-    echo "<br>";
-    echo'customerVar: <br>' . $calculator->getCustomerVariable();
-    echo "<br>";
-    echo 'groupVar <br> ';
-
-    echo "<br>";
-    echo 'bestVarDisc: <br>'. $calculator->getBestVarDisc();
-    echo "<br>";
-    echo "<br>";
-    echo 'FinalPrice:<br> ' . $calculator->getFinalPrice();
-    echo "<br>";
-    echo "<br>";
-    echo $calculator->getBestGroupDisc();
-    echo "<br>";
-    echo "<br>";
-
-
-
-
-
-}
-?>
-       
     </section>
     <br>
 <?php require 'includes/footer.php' ?>
