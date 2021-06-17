@@ -85,17 +85,20 @@ class Calculator
             $this->bestGroupDisc = "The variable group discount has given you the most discount";
         }
 
-        /*  if (!empty($this->maxVarGroupDisc) && !empty($this->customerVariable)) { */
+        
         if ($this->maxVarGroupDisc > $this->customerVariable) {
 
             $this->bestVarDisc = $this->maxVarGroupDisc;
         } else {
             $this->bestVarDisc = $this->customerVariable;
         }
-        //}
-
+       
+    
         $this->finalPrice = (($this->price - ($this->customerFixed * 100) - ($this->sumFixedGroupDisc * 100)) *  (1 - $this->bestVarDisc / 100)) / 100;
         $this->finalPrice = round($this->finalPrice, 2);
+        if($this->finalPrice < 0) {
+            $this->finalPrice = 0;
+        }
     }
 
     public function getIdCustomer(): int

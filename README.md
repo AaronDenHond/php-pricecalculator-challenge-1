@@ -6,13 +6,23 @@ Make a price calculator with 3 entities :
 2) Customer group(Name)
 3) Product(product name, price in cents)
 
-Milestone 1:  MVC structure in place, connection with database, displaying information KINDA CHECK?
-alle producten, users en groepen in select pompen CHECK
-op store page nu alle producten kunnen laten zien CHECK
+Milestone 1:  MVC structure in place, connection with database, displaying information CHECK
+select all info from tables in database CHECK
+show all products on store page CHECK
 
-Milestone 2: calculations, logic,...
+Milestone 2: calculations
+- calculator class with constructor: CHECK
+- public methods for calculations : CHECK
+- display discounted price : CHECK
 
-Milestone 3: extras (env), error reporting
+Milestone 3: extras 
+
+- environment variables : CHECK
+
+- testing .gitignore : CHECK
+
+- error reporting : in progress
+
 STRATEGIC PLAN :
 
 1. Make repo and clone it on local machine
@@ -45,14 +55,23 @@ Milestone 3 COMPLETE
 
 9. Update the view with a dropdown menu for products and customers.
 
-10. Connect the keys and show basic info
+Milestone 1 COMPLETE
 
-15/6
+10. Searching discount on customerID
 
-Loaders
-Displaying info we want to display?
-Raw view
-(PK,FKs?)
-environment variables if time
+Milestone 2 COMPLETE
 
-Price calculation
+11. Finding groupsdiscount of customer
+
+Milestone 2 COMPLETE
+
+12. Calculations with discounts
+
+Milestone 2 COMPLETE
+
+13. Display discounted price and check for no negative prices
+
+Mile stone 2 COMPLETE
+
+
+
