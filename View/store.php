@@ -21,14 +21,49 @@
                 }
                 ?>
             </select>
-            <br><br>
-            <?php
-            foreach ($allCustomerGroups as $group) {
-            }
-            ?>
+            <br>
+            <br>
             <button type="submit" name="submit">Submit choice</button>
         </form>
+<?php
+if (isset($calculator)) {
 
+
+    echo 'customerFixed: <br>' . $calculator->getCustomerFixed();
+    echo "<br>";
+    echo  'customerVariable: <br>'. $calculator->getCustomerVariable();
+    echo  "<br>";
+    echo 'sumFixedGroups:<br>'. $calculator->getSumFixedGroupDisc();
+    echo   "<br>";
+    echo 'groupVar <br> ';
+
+    echo "<br>";
+    echo 'MaxVarGroups: <br>' . $calculator->getMaxVarGroupDisc();
+    echo "<br>";
+    echo 'Price:<br> ' . $calculator->getPrice2();
+    echo "<br>";
+    echo "<br>";
+    echo'customerVar: <br>' . $calculator->getCustomerVariable();
+    echo "<br>";
+    echo 'groupVar <br> ';
+
+    echo "<br>";
+    echo 'bestVarDisc: <br>'. $calculator->getBestVarDisc();
+    echo "<br>";
+    echo "<br>";
+    echo 'FinalPrice:<br> ' . $calculator->getFinalPrice();
+    echo "<br>";
+    echo "<br>";
+    echo $calculator->getBestGroupDisc();
+    echo "<br>";
+    echo "<br>";
+
+
+
+
+
+}
+?>
        
     </section>
     <br>
