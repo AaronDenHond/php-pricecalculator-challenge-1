@@ -1,0 +1,59 @@
+body{
+    text-align: center;
+    background: rgb(47,47,162);
+    background: linear-gradient(230deg, rgba(47,47,162,1) 0%, rgb(32, 33, 130) 100%);
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+p{
+    font-size: 22px;
+}
+
+form{
+    font-size: 20px;
+}
+
+button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #f64c72;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:600;
+    color:#f64c72;
+    text-align:center;
+    background-color: #2f2fa2;
+}
+button:hover{
+    background-color: #f64c72;
+    color:#2f2fa2;
+}
+strong{
+    color: #f64c72;
+}
+
+h1{
+    color: #f64c72;
+}
+
+h4{
+    background-color: #f64c72;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #2f2fa2;
+    font-weight: bolder;
+}
+select{
+    background-color: #2f2fa2;
+    border-color: white;
+    padding: 4px;
+    color:white;
+}
+
+option:hover{
+    background-color: #f64c72 ;
+    color: #2f2fa2;
+}

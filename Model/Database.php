@@ -4,11 +4,13 @@ class Database
 {
     public static function openConnection(): PDO
     {
+        //setting up the right variables to connect with the DB
         $dbhost = $GLOBALS['DBHOST'];
         $dbuser = $GLOBALS['DBUSER'];
         $dbpass = $GLOBALS['DBPASS'];
         $db = $GLOBALS['DB'];
 
+        //driver options
         $driverOptions = [
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

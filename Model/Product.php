@@ -3,11 +3,12 @@
 
 class Product
 {
+    //properties
     private int $id;
     private string $name;
     private int $price;
 
-
+    //constructor
     public function __construct(int $id, string $name, int $price)
     {
         $this->id = $id;
@@ -16,7 +17,7 @@ class Product
 
     }
 
-
+    //getters
     public function getId(): int
     {
         return $this->id;
@@ -33,8 +34,6 @@ class Product
     {
         return $this->price;
     }
-
-
 
 
 }
