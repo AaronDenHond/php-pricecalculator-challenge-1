@@ -18,7 +18,6 @@ class ProductLoader
         //makes a new Product for each row in the table and puts it in an array
         foreach ($selectedProducts as $product) {
             $this->products[] = new Product((int)$product['id'], $product['name'], (int)$product['price']);
-            //make products array, make new product and push it to it.
         }
     }
 
