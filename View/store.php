@@ -52,10 +52,9 @@
                     echo '<p>Fixed group discount total: <strong>€' . ($calculator->getSumFixedGroupDisc()) . '</strong></p>';
                     echo '<p>Highest variable group discount: <strong>' . $calculator->getBestVarDisc() . '%</strong></p>';
                     echo "<br>";
-                    echo '<p>'.$calculator->getBestGroupDisc() . '<p></div></div>';
+                    echo '<p>' . $calculator->getBestGroupDisc() . '<p></div></div>';
 
                     echo "<br>";
-
 
 
                 }
