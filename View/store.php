@@ -3,12 +3,13 @@
     Anything complex should be calculated in the model -->
     <section>
         <h1>Store Page Front</h1>
+        <br>
         <form action="" method="POST">
             <label for="product">Choose a product :</label>
             <select name='product' id='product'>
 
                 <?php foreach ($allProducts as $product) {
-                    echo "<option value='{$product->getId()}'>{$product->getName()}: €".($product->getPrice()/100)."</option>";
+                    echo "<option value='{$product->getId()}'>{$product->getName()}: €" . ($product->getPrice() / 100) . "</option>";
                 }
                 ?>
             </select>
@@ -26,30 +27,41 @@
             <button type="submit" name="submit">Submit choice</button>
         </form>
         <br>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <?php
+                if (isset($calculator)) {
 
-            <?php
-            if (isset($calculator)) {
+                    echo '<div class="col col-lg-5"><h4>Order:</h4>';
+                    echo '<p>Customer: <strong>' . $customerPost->getFirstName() . ' ' . $customerPost->getLastName() . '</strong></p>';
+                    echo '<p>Product: <strong>' . $productPost->getName() . '</strong></p></div>';
 
-                echo '<div><h4>Price:</h4>';
-                echo '<p>The final price is: €' . ($calculator->getFinalPrice()) . '</p>';
-                echo '<p>The original price was: €' . ($calculator->getPrice2() / 100) . '</p></div>';
 
-                echo "<br>";
+                    echo "<br>";
 
-                echo '<div><h4>The customer discounts:</h4>';
-                echo '<p>Fixed customer discount: €' . ($calculator->getCustomerFixed()) .'</p>';
-                echo '<p>Variable customer discount ' . $calculator->getCustomerVariable() . '%</p>';
-                echo '<p>Fixed group discount total: €' . ($calculator->getSumFixedGroupDisc()) .'</p>';
-                echo '<p>Highest variable group discount ' . $calculator->getBestVarDisc() . '%</p>';
-                echo "<br>";
-                echo $calculator->getBestGroupDisc().'</div>';
-                echo "<br>";
-                echo "<br>";
+                    echo '<div class="col col-lg-5"><h4>Price:</h4>';
+                    echo '<p>The final price is: <strong>€' . ($calculator->getFinalPrice()) . '</strong></p>';
+                    echo '<p>The original price was: <strong>€' . ($calculator->getPrice2() / 100) . '</strong></p></div></div>';
+
+                    echo "<br>";
+
+                    echo '<div class="row justify-content-md-center">';
+                    echo '<div class="col col-lg-10"><h4>The customer discounts:</h4>';
+                    echo '<p>Fixed customer discount: <strong>€' . ($calculator->getCustomerFixed()) . '</strong></p>';
+                    echo '<p>Variable customer discount: <strong>' . $calculator->getCustomerVariable() . '%</strong></p>';
+                    echo '<p>Fixed group discount total: <strong>€' . ($calculator->getSumFixedGroupDisc()) . '</strong></p>';
+                    echo '<p>Highest variable group discount: <strong>' . $calculator->getBestVarDisc() . '%</strong></p>';
+                    echo "<br>";
+                    echo '<p>'.$calculator->getBestGroupDisc() . '<p></div></div>';
+
+                    echo "<br>";
+                    echo "<br>";
 
 
                 }
-            ?>
-
+                ?>
+            </div>
+        </div>
     </section>
     <br>
 <?php require 'includes/footer.php' ?>

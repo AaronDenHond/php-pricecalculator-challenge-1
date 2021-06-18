@@ -19,6 +19,9 @@ class StoreController
         if (isset($POST["customer"]) and isset($POST['product'])) {
             $calculator = new Calculator((int)$POST["customer"], (int)$POST["product"]);
             $calculator->calculatorFunc();
+            $customerPost= $loader2->getCustomerById((int)$POST["customer"]);
+            $productPost=$loader->getProductById((int)$POST['product']);
+
         }
         require 'View/store.php';
     }
