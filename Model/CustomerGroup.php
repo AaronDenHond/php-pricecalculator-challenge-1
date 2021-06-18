@@ -3,13 +3,14 @@
 
 class CustomerGroup
 {
+    //properties
     private int $id;
     private string $name;
     private int $parentId;
     private int $fixedDiscount;
     private int $variableDiscount;
 
-
+    //constructor
     public function __construct(int $id, string $name, int $parentId, int $fixedDiscount, int $variableDiscount)
     {
         $this->id = $id;
@@ -19,7 +20,7 @@ class CustomerGroup
         $this->variableDiscount = $variableDiscount;
     }
 
-
+    //getters
     public function getId(): int
     {
         return $this->id;

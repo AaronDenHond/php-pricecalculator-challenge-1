@@ -3,6 +3,7 @@
 
 class Calculator
 {
+    //properties
     private int $idCustomer;
     private int $idProduct;
     private int $customerFixed;
@@ -16,34 +17,42 @@ class Calculator
     private int $bestVarDisc;
     private float $finalPrice;
 
-
+    //constructor
     public function __construct(int $idCustomer, int $idProduct)
     {
         $this->idCustomer = $idCustomer;
         $this->idProduct = $idProduct;
     }
 
+    //Method to load in all the discounts the customer gets
     public function getDisc()
     {
         if (isset($this->idCustomer)) {
+            //loading in the data from the customers
             $loader2 = new CustomerLoader();
             $allCustomers = $loader2->getAllCustomers();
 
+            //loading in the data from the customer groups
             $loader3 = new CustomerGroupLoader();
             $allCustomerGroups = $loader3->getAllCustomerGroups();
 
+            //search customer by id
             $customer = $loader2->getCustomerById($this->idCustomer);
 
+            //get the customer fixed and variable discount
             $customerGroup = $customer->getGroupId();
             $this->customerFixed = $customer->getFixedDiscount();
             $this->customerVariable = $customer->getVariableDiscount();
 
+            //search group by id
             $group = $loader3->getGroupById((int)$customerGroup);
 
+            //get the fixed and variable group discount
             $this->groupFixed = array($group->getFixedDiscount());
             $this->groupVariable = array($group->getVariableDiscount());
             $groupParent = $group->getParentId();
 
+            //getting all the fixed and variable group discount from all the parent id's
             while ($groupParent > 0) {
                 $group = $loader3->getGroupById((int)$groupParent);
                 $fix = $group->getFixedDiscount();
@@ -59,6 +68,7 @@ class Calculator
         }
     }
 
+    //Method to get the price for the product
     public function getPrice()
     {
         $loader = new ProductLoader();
@@ -71,36 +81,42 @@ class Calculator
         }
     }
 
+    //Method for doing the calculation with the Discounts and the Price
     public function calculatorFunc()
     {
+        //using the price and discount method
         $this->getDisc();
         $this->getPrice();
 
+        //getting the maximum variable group disc
         $this->maxVarGroupDisc = max($this->groupVariable);
+        //getting the sum of all the fixed group disc
         $this->sumFixedGroupDisc = array_sum($this->groupFixed);
 
-        if ($this->sumFixedGroupDisc > $this->price/100 * ($this->maxVarGroupDisc / 100)) {
+        //checking which gives more benefit, fixed of variable disc
+        if ($this->sumFixedGroupDisc > $this->price / 100 * ($this->maxVarGroupDisc / 100)) {
             $this->bestGroupDisc = "The fixed group discount has given you the most discount.";
         } else {
             $this->bestGroupDisc = "The variable group discount has given you the most discount.";
         }
 
-        
+        //checking which is better the variable customer discount or the highest variable group disc
         if ($this->maxVarGroupDisc > $this->customerVariable) {
 
             $this->bestVarDisc = $this->maxVarGroupDisc;
         } else {
             $this->bestVarDisc = $this->customerVariable;
         }
-       
-    
-        $this->finalPrice = (($this->price - ($this->customerFixed * 100) - ($this->sumFixedGroupDisc * 100)) *  (1 - $this->bestVarDisc / 100)) / 100;
+
+        //finale price calculation
+        $this->finalPrice = (($this->price - ($this->customerFixed * 100) - ($this->sumFixedGroupDisc * 100)) * (1 - $this->bestVarDisc / 100)) / 100;
         $this->finalPrice = round($this->finalPrice, 2);
-        if($this->finalPrice < 0) {
+        if ($this->finalPrice < 0) {
             $this->finalPrice = 0;
         }
     }
 
+    //getters
     public function getIdCustomer(): int
     {
         return $this->idCustomer;
@@ -140,6 +156,7 @@ class Calculator
     {
         return $this->maxVarGroupDisc;
     }
+
     public function getPrice2(): int
     {
         return $this->price;
@@ -149,10 +166,12 @@ class Calculator
     {
         return $this->bestGroupDisc;
     }
+
     public function getBestVarDisc(): int
     {
         return $this->bestVarDisc;
     }
+
     public function getFinalPrice(): float
     {
         return $this->finalPrice;
