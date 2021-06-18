@@ -55,7 +55,7 @@
                     echo '<p>'.$calculator->getBestGroupDisc() . '<p></div></div>';
 
                     echo "<br>";
-                    echo "<br>";
+
 
 
                 }
@@ -64,4 +64,5 @@
         </div>
     </section>
     <br>
+    <p><a href="index.php">Back to homepage</a></p>
 <?php require 'includes/footer.php' ?>
